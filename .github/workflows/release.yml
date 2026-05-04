@@ -60,6 +60,7 @@ jobs:
       - name: Build
         env:
           CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_LINKER: aarch64-linux-gnu-gcc
+          FORK_VERSION: ${{ github.event.release.tag_name }}
         run: cargo build --release --target ${{ matrix.target }}
       - name: Prepare artifact (Unix)
         if: runner.os != 'Windows'

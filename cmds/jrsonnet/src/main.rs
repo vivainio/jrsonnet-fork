@@ -56,7 +56,7 @@ struct InputOpts {
 #[clap(
 	args_conflicts_with_subcommands = true,
 	disable_version_flag = true,
-	version,
+	version = option_env!("FORK_VERSION").unwrap_or(concat!(env!("CARGO_PKG_VERSION"), "-fork")),
 	author
 )]
 struct Opts {
