@@ -4,11 +4,10 @@ Personal fork of https://github.com/CertainLach/jrsonnet[CertainLach/jrsonnet].
 
 For what jrsonnet is, how it compares to other Jsonnet implementations, build instructions, and bindings (Rust / Python / C / WASM), see the https://github.com/CertainLach/jrsonnet[upstream README].
 
-== Difference from upstream
+== Differences from upstream
 
-`--preserve-order` is exposed as an always-available, global CLI flag. In upstream it lives behind the `exp-preserve-order` compile-time feature; here it ships in every build. When set, object field insertion order is preserved through `std.manifest*`, `std.objectFields*`, and object composition.
-
-Upstream rejected this as a global flag (https://github.com/CertainLach/jrsonnet/pull/217[#217]) because it makes `+` non-commutative on objects and silently changes `objectFields` order everywhere. That is an accepted trade-off in this fork for personal use; if you need a pure evaluator, use upstream.
+* **Global `--preserve-order` flag.** Exposed as an always-available CLI flag instead of being gated behind the `exp-preserve-order` compile-time feature. When set, object field insertion order is preserved through `std.manifest*`, `std.objectFields*`, and object composition. Upstream rejected this as a global flag (https://github.com/CertainLach/jrsonnet/pull/217[#217]) because it makes `+` non-commutative on objects and silently changes `objectFields` order everywhere. That is an accepted trade-off in this fork for personal use; if you need a pure evaluator, use upstream.
+* **GitHub Actions release pipeline.** Cross-platform release builds (Linux amd64/aarch64/i686, macOS amd64/aarch64, Windows amd64/i686) are produced via `.github/workflows/release.yml` and uploaded to the releases page on every published tag. Upstream has no equivalent CI release flow.
 
 == Releases
 
