@@ -1,5 +1,16 @@
 = jrsonnet
 
+[NOTE]
+====
+This is a personal fork of https://github.com/CertainLach/jrsonnet[CertainLach/jrsonnet].
+
+Difference from upstream: `--preserve-order` is exposed as an always-available, global CLI flag (in upstream it lives behind the `exp-preserve-order` compile-time feature). When set, object field insertion order is preserved through `std.manifest*`, `std.objectFields*`, and object composition.
+
+Upstream rejected this as a global flag (https://github.com/CertainLach/jrsonnet/pull/217[#217]) because it makes `+` non-commutative on objects and silently changes `objectFields` order everywhere. That is an accepted trade-off in this fork for personal use; if you need a pure evaluator, use upstream.
+
+Releases from this fork are tagged `vX.Y.Z-fork.N`.
+====
+
 ++++
 <p align="center"><a href="https://github.com/CertainLach/jrsonnet"><img alt="jrsonnet logo" src="./docs/logowide.svg" height="150"></img></a></p>
 <p align="center">
